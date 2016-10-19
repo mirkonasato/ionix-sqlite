@@ -1,0 +1,23 @@
+{
+  "name": "ionix-sqlite",
+  "description": "Makes it easier to use SQLite in your Ionic 2 app",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirkonasato/ionix-sqlite.git"
+  },
+  "author": {
+    "name": "Mirko Nasato",
+    "email": "mirko@encoded.io"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc --rootDir src --outDir dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "2.0.3"
+  }
+}
