@@ -50,7 +50,18 @@ export class ItemService {
     const select = 'SELECT id, title, description FROM items';
     return this.dbPromise
       .then(db => db.execute(select))
-      .then(resultSet => resultSet.rows);
+      .then(resultSet => {
+        const items = [];
+        for (let i = 0; i < resultSet.rows.length; i++) {
+          const row = resultSet.rows.item(i);
+          items.push({
+            id: row.id,
+            title: row.title,
+            description: row.description
+          });
+        }
+        return items;
+      });
   }
 
 }

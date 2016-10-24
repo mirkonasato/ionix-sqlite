@@ -1,4 +1,4 @@
-declare var cordova;
+declare var cordova: any;
 
 export function isBrowser(): Promise<boolean> {
   if (typeof cordova === 'undefined') {

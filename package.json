@@ -14,10 +14,19 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "tsc --rootDir src --outDir dist"
+    "build": "tsc -p tsconfig-build.json --rootDir src --outDir dist",
+    "test": "karma start"
   },
   "dependencies": {},
   "devDependencies": {
-    "typescript": "2.0.3"
+    "@types/jasmine": "2.5.35",
+    "jasmine-core": "2.5.2",
+    "karma": "1.3.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-jasmine": "1.0.2",
+    "karma-webpack": "1.8.0",
+    "ts-loader": "0.9.5",
+    "typescript": "2.0.3",
+    "webpack": "2.1.0-beta.25"
   }
 }
