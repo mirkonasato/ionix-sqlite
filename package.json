@@ -1,7 +1,7 @@
 {
   "name": "ionix-sqlite",
   "description": "Makes it easier to use SQLite in your Ionic 2 app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,10 +11,13 @@
     "name": "Mirko Nasato",
     "email": "mirko@encoded.io"
   },
-  "main": "index.js",
+  "main": "bundles/ionix-sqlite.umd.js",
+  "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "tsc -p tsconfig-build.json --rootDir src --outDir dist",
+    "build": "rimraf dist && npm run build:umd && npm run build:es2015",
+    "build:es2015": "tsc --rootDir src --outDir dist -p tsconfig-es2015.json",
+    "build:umd": "webpack",
     "test": "karma start"
   },
   "dependencies": {},
@@ -25,6 +28,7 @@
     "karma-chrome-launcher": "2.0.0",
     "karma-jasmine": "1.0.2",
     "karma-webpack": "1.8.0",
+    "rimraf": "2.5.4",
     "ts-loader": "0.9.5",
     "typescript": "2.0.3",
     "webpack": "2.1.0-beta.25"

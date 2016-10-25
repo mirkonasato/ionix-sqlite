@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "lib": [
       "dom",
@@ -10,7 +10,6 @@
     "types": [
       "jasmine"
     ],
-    "declaration": true,
     "noImplicitAny": false
   },
   "compileOnSave": false,

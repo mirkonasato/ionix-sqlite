@@ -1,10 +1,10 @@
-# IoniX SQLite
+# Ionix SQLite
 
 This project aims to make it easier to work with SQLite in Ionic 2 apps.
 
-As it has no actual dependencies on Ionic it could be used in other Cordova applications as well. However the published NPM package contains ES2015 modules intended to work well with Ionic 2 builds.
+As it has no actual dependencies on Ionic it could be used in other Cordova applications as well.
 
-In case you wonder, **IoniX** stands for "Ionic eXtensions". It's a name chosen to suggest that this package is related to Ionic, but is not an official Ionic project.
+In case you wonder, **Ionix** stands for "Ionic eXtensions". It's a name chosen to suggest that this package is related to Ionic, but is not an official Ionic project.
 
 ## Why not just use Ionic Native?
 
