@@ -64,5 +64,20 @@ export class ItemService {
       });
   }
 
+
+  insertItems(): Promise<any> {
+    let inserts: any = [
+      'INSERT INTO items (id, title) VALUES ("1", "title A");',
+      'INSERT INTO items (id, title) VALUES ("2", "title B");',
+      'INSERT INTO items (id, title) VALUES ("3", "title C");'
+    ];
+    return this.dbPromise
+      .then(db => db.executeBatch(inserts))
+      .then(() => {
+        console.log('Done!');
+      }).catch( err => console.log(err) );
+  }
+  
+
 }
 ```

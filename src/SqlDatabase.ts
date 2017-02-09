@@ -40,6 +40,35 @@ export class SqlDatabase {
     });
   }
 
+  executeBatch = function (statements: any[] = []) {
+    var _this = this;
+    isBrowser().then(function (browser) {
+      if (!browser) {
+        return new Promise(function (resolve, reject) {
+          _this._db.sqlBatch(statements, function() {
+            resolve();
+          }, function(err) {
+            reject(err);
+          });    
+        });  
+      } else {
+        return new Promise(function (resolve, reject) {
+          _this._db.transaction(function (tx) { 
+            for (var i = 0; i < statements.length; i++) {
+              var statement = statements[i];
+              tx.executeSql(statement, [ ], function (tx, resultSet) {
+                //resolve(resultSet);
+              }, function (tx, error) {
+                //reject(error);
+              });
+            }
+            resolve();
+          });                
+        });
+      }
+    });
+  }
+
 }
 
 declare var sqlitePlugin: any;
