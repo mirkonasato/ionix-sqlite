@@ -61,13 +61,17 @@ function openCordovaDatabase(name: string): Promise<SqlDatabase> {
 declare function openDatabase(name: string, version: string, desc: string, size: number): any;
 
 function openBrowserDatabase(name: string): Promise<SqlDatabase> {
-  return new Promise((resolve, reject) => {
-    try {
-      const db = openDatabase(name, '1.0', name, -1);
-      console.info('[ionix-sqlite] using WebSQL');
-      resolve(new SqlDatabase(db));
-    } catch (error) {
-      reject(error);
+    if (typeof sqlitePlugin !== 'undefined') {
+      return openCordovaDatabase(name);
+    }else{
+      return new Promise((resolve, reject) => {
+        try {
+          const db = openDatabase(name, '1.0', name, -1);
+          console.info('[ionix-sqlite] using WebSQL');
+          resolve(new SqlDatabase(db));
+        } catch (error) {
+          reject(error);
+        }
+      });
     }
-  });
 }
